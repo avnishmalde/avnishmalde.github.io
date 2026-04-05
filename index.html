@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avnish Malde — Research Scientist & Operations Research Expert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #080c14;
+      --bg2: #0d1220;
+      --bg3: #111827;
+      --surface: #141c2e;
+      --border: rgba(180,160,100,0.15);
+      --gold: #c8a84b;
+      --gold-light: #e2c875;
+      --gold-dim: rgba(200,168,75,0.15);
+      --text: #e8e4d8;
+      --text-muted: #8a8a8a;
+      --text-dim: #5a5a6a;
+      --white: #f5f2ea;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE OVERLAY ─── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(8,12,20,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: padding 0.3s;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 0 4rem;
+      overflow: hidden;
+    }
+
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(200,168,75,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,168,75,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 700px; height: 700px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,168,75,0.07) 0%, transparent 70%);
+      top: -200px; right: -200px;
+      pointer-events: none;
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(50,100,200,0.06) 0%, transparent 70%);
+      bottom: -100px; left: 100px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      max-width: 800px;
+      animation: fadeUp 1s ease forwards;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 30px; height: 1px;
+      background: var(--gold);
+    }
+
+    h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 7vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 540px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .badge {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      border: 1px solid var(--border);
+      background: var(--gold-dim);
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--gold);
+      color: #080c14;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 0.85rem 2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.85rem 2rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s, transform 0.2s;
+    }
+
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+    .hero-stats {
+      position: absolute;
+      right: 4rem;
+      bottom: 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      animation: fadeIn 1.2s 0.4s both;
+    }
+
+    .stat {
+      text-align: right;
+    }
+
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ─── SECTIONS ─── */
+    section {
+      position: relative;
+      padding: 6rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      max-width: 60px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 3rem;
+    }
+
+    h2 span { color: var(--gold); font-style: italic; }
+
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border), transparent);
+      margin: 0;
+    }
+
+    /* ─── ABOUT ─── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+      line-height: 1.85;
+    }
+
+    .about-text p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .about-skills h3 {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .skill-pill {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      padding: 0.3rem 0.75rem;
+      border-radius: 20px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .skill-pill:hover { border-color: var(--gold); color: var(--gold-light); }
+
+    .edu-item {
+      border-left: 1px solid var(--border);
+      padding-left: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .edu-item::before {
+      content: '';
+      position: absolute;
+      left: -4px; top: 6px;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .edu-degree {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .edu-school {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .edu-year {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── EXPERIENCE ─── */
+    #experience { background: var(--bg2); max-width: 100%; padding: 6rem 0; }
+    #experience .inner { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 8px; bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), var(--border) 80%, transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 2.5rem;
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .timeline-item.visible { opacity: 1; transform: none; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -2rem; top: 6px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 2px solid var(--bg2);
+      box-shadow: 0 0 0 3px rgba(200,168,75,0.2);
+    }
+
+    .timeline-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.4rem;
+      flex-wrap: wrap;
+    }
+
+    .company-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    .role-title {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .timeline-period {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      margin-bottom: 0.8rem;
+    }
+
+    .timeline-body {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+    }
+
+    .project-block {
+      margin-bottom: 1.4rem;
+      padding-bottom: 1.4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .project-block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+    .project-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+      font-style: italic;
+    }
+
+    .project-bullets {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-bullets li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      padding-left: 1.2rem;
+      position: relative;
+      margin-bottom: 0.3rem;
+    }
+
+    .project-bullets li::before {
+      content: '›';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    /* ─── PUBLICATIONS & PATENTS ─── */
+    .pub-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pub-tab {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      padding: 0.8rem 1.8rem;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+      background: none;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+
+    .pub-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .pub-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+    }
+
+    .pub-card:hover { border-color: rgba(200,168,75,0.4); transform: translateX(4px); }
+
+    .pub-card-num {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: rgba(200,168,75,0.12);
+      position: absolute;
+      top: 0.5rem; right: 1rem;
+      line-height: 1;
+    }
+
+    .pub-title {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      line-height: 1.5;
+      padding-right: 3rem;
+    }
+
+    .pub-authors {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .pub-venue {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+    }
+
+    .patent-status {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 2px;
+      margin-bottom: 0.6rem;
+    }
+
+    .patent-status.granted { background: rgba(100,200,100,0.15); color: #7dcf7d; border: 1px solid rgba(100,200,100,0.3); }
+    .patent-status.pending { background: rgba(200,168,75,0.1); color: var(--gold); border: 1px solid var(--border); }
+
+    .patent-id {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-dim);
+    }
+
+    /* ─── PROJECTS ─── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, transform 0.3s;
+      cursor: default;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .project-card:hover { border-color: rgba(200,168,75,0.3); transform: translateY(-4px); }
+    .project-card:hover::before { opacity: 1; }
+
+    .project-card-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-card-org {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .project-card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.3;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-card-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .project-card-impact {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--gold-light);
+      background: var(--gold-dim);
+      padding: 0.4rem 0.8rem;
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--bg2); max-width: 100%; padding: 6rem 0; }
+    #contact .inner { max-width: 1200px; margin: 0 auto; padding: 0 4rem; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-text p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.2rem 1.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .contact-link:hover { border-color: var(--gold); transform: translateX(4px); }
+
+    .contact-link-icon {
+      width: 36px; height: 36px;
+      background: var(--gold-dim);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-link-info strong {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--white);
+    }
+
+    .contact-link-info span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 2.5rem 4rem;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    footer p {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+    }
+
+    footer span { color: var(--gold); }
+
+    /* ─── ANIMATIONS ─── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      #hero { padding: 0 1.5rem; }
+      .hero-stats { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      #experience .inner, #contact .inner { padding: 0 1.5rem; }
+      h1 { font-size: 3rem; }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .projects-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Scroll reveal base */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav>
+    <a class="nav-logo" href="#hero">AM</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#publications">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-glow-2"></div>
+
+    <div class="hero-content">
+      <div class="hero-tag">Research Scientist · Operations Research · Optimization</div>
+      <h1>Avnish<br /><em>Malde</em></h1>
+      <p class="hero-sub">
+        PhD in Industrial Engineering. Building scalable optimization systems that move goods, trains, and decisions — from last-mile delivery at Amazon to marshalling yards at BNSF Railway.
+      </p>
+      <div class="hero-badges">
+        <span class="badge">Mathematical Optimization</span>
+        <span class="badge">Stochastic Programming</span>
+        <span class="badge">Machine Learning</span>
+        <span class="badge">Graph Algorithms</span>
+        <span class="badge">Supply Chain</span>
+      </div>
+      <div class="hero-cta">
+        <a href="https://linkedin.com/in/avnish-malde" target="_blank" class="btn-primary">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="#contact" class="btn-outline">
+          Get in Touch →
+        </a>
+        <a href="#publications" class="btn-outline">
+          View Research →
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">2</div>
+        <div class="stat-label">Granted Patents</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6+</div>
+        <div class="stat-label">Publications</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">9+</div>
+        <div class="stat-label">Conference Talks</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── ABOUT ─── -->
+  <section id="about">
+    <div class="section-label">01 — About</div>
+    <h2>Turning complexity<br />into <span>optimal decisions</span></h2>
+
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          I am a <strong>Research Scientist at Amazon</strong> and a PhD in Industrial Engineering from Clemson University, where I specialized in optimization under uncertainty. My work sits at the intersection of operations research, machine learning, and large-scale systems.
+        </p>
+        <p>
+          Over the years I've designed and deployed decision-support tools that operate at scale — from routing billions of dollars of freight across a national rail network to optimizing last-mile delivery jurisdictions for Amazon. My solutions consistently deliver <strong>measurable, multi-million dollar impact</strong>.
+        </p>
+        <p>
+          I hold two <strong>US granted patents</strong> in railroad optimization and have published in peer-reviewed journals including <em>Annals of Operations Research</em>. I serve on the Daniel H. Wagner Prize committee and peer-review for leading OR journals.
+        </p>
+        <p>
+          I am based in <strong>Bengaluru, India</strong>, with ties to New Jersey, USA.
+        </p>
+      </div>
+
+      <div class="reveal" style="transition-delay: 0.15s">
+        <div class="about-skills">
+          <h3>Core Expertise</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Integer Programming</span>
+            <span class="skill-pill">Multi-objective Optimization</span>
+            <span class="skill-pill">Stochastic Programming</span>
+            <span class="skill-pill">Decomposition Methods</span>
+            <span class="skill-pill">Graph Partitioning</span>
+            <span class="skill-pill">Time-Space Networks</span>
+            <span class="skill-pill">Neural Networks</span>
+            <span class="skill-pill">Time-Series Forecasting</span>
+            <span class="skill-pill">Simulation Modeling</span>
+          </div>
+
+          <h3 style="margin-top:1.5rem">Tools & Platforms</h3>
+          <div class="skill-pills">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Gurobi</span>
+            <span class="skill-pill">CPLEX</span>
+            <span class="skill-pill">Xpress</span>
+            <span class="skill-pill">Julia</span>
+            <span class="skill-pill">SQL</span>
+            <span class="skill-pill">Tableau</span>
+            <span class="skill-pill">Arena</span>
+            <span class="skill-pill">JMP</span>
+          </div>
+
+          <h3 style="margin-top:1.5rem">Education</h3>
+          <div class="edu-item">
+            <div class="edu-degree">PhD — Industrial Engineering</div>
+            <div class="edu-school">Clemson University</div>
+            <div class="edu-year">2018 – 2022 · Advisor: Dr. Tugçe Işık</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">MS — Industrial Engineering</div>
+            <div class="edu-school">Clemson University</div>
+            <div class="edu-year">2016 – 2018</div>
+          </div>
+          <div class="edu-item">
+            <div class="edu-degree">BE — Mechanical Engineering</div>
+            <div class="edu-school">K.J. Somaiya College of Engineering, University of Mumbai</div>
+            <div class="edu-year">2012 – 2016</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── EXPERIENCE ─── -->
+  <section id="experience" style="padding:6rem 0; max-width:100%">
+    <div class="inner">
+      <div class="section-label">02 — Experience</div>
+      <h2>Where research<br /><span>meets real-world impact</span></h2>
+
+      <div class="timeline">
+
+        <!-- Amazon -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-meta">
+            <span class="company-name">Amazon</span>
+            <span class="role-title">Research Scientist</span>
+          </div>
+          <div class="timeline-period">July 2025 – Present · Bengaluru, India</div>
+          <div class="timeline-body">
+            <div class="project-block">
+              <div class="project-title">Jurisdiction Optimization for Last Mile Delivery</div>
+              <ul class="project-bullets">
+                <li>Developed an LCUT-based contiguity enforcement approach using Fischetti separators for topology-aware planar graph partitioning, outperforming existing path-based heuristics.</li>
+                <li>Formulated and solved a multi-objective optimization model using the ε-constraint method to limit changes in hard-to-serve delivery regions.</li>
+                <li>Conducted in-depth solver comparison between Gurobi and Xpress.</li>
+              </ul>
+            </div>
+            <div class="project-block">
+              <div class="project-title">Topology Optimization for Last Mile Delivery</div>
+              <ul class="project-bullets">
+                <li>Defined and formulated the topology optimization problem through close collaboration with business stakeholders and subject-matter experts.</li>
+                <li>Researching and implementing scalable solution approaches.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- BNSF Sr II -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-meta">
+            <span class="company-name">BNSF Railway</span>
+            <span class="role-title">Senior OR & Advanced Analytics Specialist II</span>
+          </div>
+          <div class="timeline-period">September 2023 – July 2025 · Fort Worth, Texas, USA</div>
+          <div class="timeline-body">
+            <div class="project-block">
+              <div class="project-title">Real-time Sequential Optimization — Railcar Throughput</div>
+              <ul class="project-bullets">
+                <li>Formulated a time-space network multi-objective assignment model for marshalling yard operations.</li>
+                <li>Implemented in CPLEX/Python using decomposition with progressive constraint relaxation for high-quality, low-latency solutions.</li>
+                <li>Developed a fuzzy logic system to verify live operational data and propose corrections.</li>
+                <li>Delivered multi-million dollar annual savings while improving on-time train performance and operational safety.</li>
+              </ul>
+            </div>
+            <div class="project-block">
+              <div class="project-title">Block-to-Track Assignment Optimization</div>
+              <ul class="project-bullets">
+                <li>Built a tactical-level multi-objective optimization model using hierarchical decomposition and blended objectives in CPLEX/Python.</li>
+                <li>Reduced terminal planning time by 80%, significantly improving long-term operational efficiency.</li>
+              </ul>
+            </div>
+            <div class="project-block">
+              <div class="project-title">Annual Fuel Demand Prediction</div>
+              <ul class="project-bullets">
+                <li>Built demand forecasting models using regression and neural-network methods to support multi-billion dollar annual fuel sourcing bids across the entire BNSF network.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- BNSF Sr I -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-meta">
+            <span class="company-name">BNSF Railway</span>
+            <span class="role-title">Senior OR Specialist I</span>
+          </div>
+          <div class="timeline-period">August 2022 – September 2023 · Fort Worth, Texas, USA</div>
+          <div class="timeline-body">
+            <div class="project-block">
+              <div class="project-title">Locomotive Decision Assist</div>
+              <ul class="project-bullets">
+                <li>Built a Julia simulation model to simulate locomotive power flow across the entire BNSF network under future schedule uncertainty.</li>
+                <li>Developed a stochastic perturbation method based on historical data to replicate potential schedule changes.</li>
+              </ul>
+            </div>
+            <div class="project-block">
+              <div class="project-title">Fuel Sourcing Strategies & Dashboards</div>
+              <ul class="project-bullets">
+                <li>Analyzed multi-location fuel sourcing cost data using SQL/Python; built Tableau dashboards for price monitoring.</li>
+                <li>Proposed sourcing strategy modifications resulting in millions of dollars of annual savings.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Clemson / BMW -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-meta">
+            <span class="company-name">Clemson × BMW</span>
+            <span class="role-title">Graduate Research Assistant</span>
+          </div>
+          <div class="timeline-period">May 2018 – July 2022 · Clemson, South Carolina, USA</div>
+          <div class="timeline-body">
+            <div class="project-block">
+              <div class="project-title">Transportation Mode Selection & Capacity Allocation</div>
+              <ul class="project-bullets">
+                <li>Developed a two-stage stochastic integer programming model solved via SAA with Latin Hypercube Sampling and Progressive Hedging on distributed HPC.</li>
+                <li>Achieved a 44.7% cost reduction in the pilot study compared to the existing process.</li>
+              </ul>
+            </div>
+            <div class="project-block">
+              <div class="project-title">Sea-Container Consolidation under Uncertainty</div>
+              <ul class="project-bullets">
+                <li>Built time-series forecasting models (ARIMA, Prophet, ensemble) and a chance-constraint optimization model for vendor hub inventory control.</li>
+                <li>Resulted in a 40% reduction in daily average warehouse utilization.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- FedEx -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-meta">
+            <span class="company-name">FedEx Ground</span>
+            <span class="role-title">Operations Research Scientist Intern</span>
+          </div>
+          <div class="timeline-period">May 2021 – August 2021 · Moon Township, Pennsylvania, USA</div>
+          <div class="timeline-body">
+            <ul class="project-bullets">
+              <li>Developed an optimal reconciliation process for hierarchical forecasting using non-linear optimization, improving overall forecast accuracy by 10%.</li>
+              <li>Applied outlier-detection and change-point detection using Kats and fbprophet to improve training data quality.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── PUBLICATIONS & PATENTS ─── -->
+  <section id="publications">
+    <div class="section-label">03 — Research</div>
+    <h2>Publications &<br /><span>Patents</span></h2>
+
+    <div class="pub-tabs">
+      <button class="pub-tab active" onclick="showTab('journal')">Journal Articles</button>
+      <button class="pub-tab" onclick="showTab('patents')">Patents</button>
+      <button class="pub-tab" onclick="showTab('conferences')">Conferences</button>
+    </div>
+
+    <!-- Journal Articles -->
+    <div id="tab-journal" class="tab-panel active">
+      <div class="pub-card reveal">
+        <span class="pub-card-num">01</span>
+        <div class="pub-title">Optimal transportation mode selection and capacity allocation under uncertainty</div>
+        <div class="pub-authors">Avnish Kishor Malde and Tugçe Işık</div>
+        <div class="pub-venue">Annals of Operations Research, 2025</div>
+      </div>
+      <div class="pub-card reveal">
+        <span class="pub-card-num">02</span>
+        <div class="pub-title">A machine learning approach for predicting maternal health risks in lower-middle-income countries using sparse data and vital signs</div>
+        <div class="pub-authors">Avnish Malde, Vishnunarayan Girishan Prabhu, Dishant Banga, Michael Hsieh, Chaithanya Renduchintala, and Ronald Pirrallo</div>
+        <div class="pub-venue">Future Internet, 17(5):190, 2025</div>
+      </div>
+      <div class="pub-card reveal">
+        <span class="pub-card-num">03</span>
+        <div class="pub-title">Optimal team formation and job assignment to optimize warehouse operations</div>
+        <div class="pub-authors">Avnish Kishor Malde, Tugçe Işık, Ryan Lockaby, Art Gantt, and Guenter Thumser</div>
+        <div class="pub-venue">2022 Winter Simulation Conference (WSC), Singapore</div>
+      </div>
+      <div class="pub-card reveal">
+        <span class="pub-card-num">04</span>
+        <div class="pub-title">Optimal Global Supply Chain and Warehouse Planning under Uncertainty</div>
+        <div class="pub-authors">Avnish Kishor Malde</div>
+        <div class="pub-venue">PhD Thesis, Clemson University, 2022</div>
+      </div>
+    </div>
+
+    <!-- Patents -->
+    <div id="tab-patents" class="tab-panel">
+      <div class="pub-card reveal">
+        <span class="patent-status granted">Granted</span>
+        <div class="pub-title">Multi-objective systems and methods for optimally assigning train blocks at a railroad merchandise yard</div>
+        <div class="pub-authors">Avnish Kishor Malde, Paul Kuhn, Timothy R. Bank, Cory A. Misiewicz, Ross E. Molyneaux, Felicia R. Mosenfelder, and Tanner R. Wyatt</div>
+        <div class="patent-id">US 12179819</div>
+      </div>
+      <div class="pub-card reveal">
+        <span class="patent-status granted">Granted</span>
+        <div class="pub-title">Time-space network based multi-objective systems and methods for optimal railcar stacking at a railroad merchandise yard</div>
+        <div class="pub-authors">Avnish Kishor Malde, Paul Kuhn, Chad Lawrence, Nathaniel W. Merry, Shane Reffett, Patrick J. Sbrocca, and Timothy J. Worrell</div>
+        <div class="patent-id">US 12358543</div>
+      </div>
+      <div class="pub-card reveal">
+        <span class="patent-status pending">Under Review</span>
+        <div class="pub-title">Multi-objective systems and methods for optimally assigning train blocks at a railroad merchandise yard</div>
+        <div class="pub-authors">Avnish Kishor Malde, Paul Kuhn, et al.</div>
+        <div class="patent-id">US Patent App. 19/005662</div>
+      </div>
+      <div class="pub-card reveal">
+        <span class="patent-status pending">Under Review</span>
+        <div class="pub-title">Time-space network based multi-objective systems and methods for optimal railcar stacking at a railroad merchandise yard</div>
+        <div class="pub-authors">Avnish Kishor Malde, Paul Kuhn, et al.</div>
+        <div class="patent-id">US Patent App. 19/269393</div>
+      </div>
+    </div>
+
+    <!-- Conferences -->
+    <div id="tab-conferences" class="tab-panel">
+      <div class="pub-card reveal">
+        <div class="pub-title">Real time optimization and sequential decision making in railroad hump yard operations</div>
+        <div class="pub-authors">Avnish Kishor Malde and Paul Kuhn</div>
+        <div class="pub-venue">INFORMS Annual Meeting · Seattle, Washington · October 2024</div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-title">Optimal team formation and job assignment to optimize warehouse operations</div>
+        <div class="pub-authors">Avnish Kishor Malde, Tugçe Işık, Ryan Lockaby, Art Gantt, and Guenter Thumser</div>
+        <div class="pub-venue">Winter Simulation Conference · Singapore · December 2022</div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-title">Optimal transportation mode selection and capacity allocation under uncertainty</div>
+        <div class="pub-authors">Avnish Kishor Malde, Tugçe Işık, Guenter Thumser, and Art Gantt</div>
+        <div class="pub-venue">INFORMS Optimization Society Conference · Greenville, SC · March 2022</div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-title">Optimal transportation mode selection and capacity allocation under uncertainty</div>
+        <div class="pub-authors">Avnish Kishor Malde, Tugçe Işık, Guenter Thumser, and Art Gantt</div>
+        <div class="pub-venue">INFORMS Annual Meeting · Los Angeles, CA · October 2021</div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-title">Optimal transportation mode selection and capacity allocation under uncertainty</div>
+        <div class="pub-authors">Avnish Kishor Malde, Tugçe Işık, Guenter Thumser, and Art Gantt</div>
+        <div class="pub-venue">IFORS · Seoul, South Korea · August 2021 &amp; INFORMS Annual Meeting · November 2020</div>
+      </div>
+      <div class="pub-card reveal">
+        <div class="pub-title">Optimal container selection in conflicting objective environment</div>
+        <div class="pub-authors">Avnish Kishor Malde, Tugçe Işık, Carrie Cline, and Guenter Thumser</div>
+        <div class="pub-venue">INFORMS Annual Meeting · Seattle, Washington · October 2019</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── PROJECTS ─── -->
+  <section id="projects">
+    <div class="section-label">04 — Projects</div>
+    <h2>Signature<br /><span>research projects</span></h2>
+
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <div class="project-card-icon">🗺️</div>
+        <div class="project-card-org">Amazon</div>
+        <div class="project-card-title">Last Mile Jurisdiction Optimization</div>
+        <div class="project-card-desc">LCUT-based contiguity enforcement via Fischetti separators for topology-aware planar graph partitioning. Multi-objective ε-constraint formulation to limit changes in hard-to-serve delivery regions.</div>
+        <span class="project-card-impact">Graph Theory · MILP · ε-constraint</span>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-card-icon">🚂</div>
+        <div class="project-card-org">BNSF Railway</div>
+        <div class="project-card-title">Real-time Railcar Throughput Optimization</div>
+        <div class="project-card-desc">Time-space network multi-objective assignment with CPLEX-based decomposition and fuzzy logic for live data verification. Delivered millions in annual savings and improved train safety.</div>
+        <span class="project-card-impact">Multi-million $ impact · US Patent Granted</span>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-card-icon">📦</div>
+        <div class="project-card-org">BMW × Clemson</div>
+        <div class="project-card-title">Stochastic Supply Chain Optimization</div>
+        <div class="project-card-desc">Two-stage stochastic integer program for transportation mode selection and capacity allocation. Solved via SAA with Latin Hypercube Sampling and Progressive Hedging on HPC.</div>
+        <span class="project-card-impact">44.7% cost reduction · Annals of OR 2025</span>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-card-icon">🏭</div>
+        <div class="project-card-org">BMW × Clemson</div>
+        <div class="project-card-title">Sea-Container Consolidation & Inventory Control</div>
+        <div class="project-card-desc">Chance-constraint optimization coupled with ensemble time-series forecasting (ARIMA, Prophet) to determine supplier safety stocks under demand uncertainty.</div>
+        <span class="project-card-impact">40% reduction in warehouse utilization</span>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-card-icon">🚆</div>
+        <div class="project-card-org">BNSF Railway</div>
+        <div class="project-card-title">Block-to-Track Assignment Planning</div>
+        <div class="project-card-desc">Tactical-level multi-objective MILP with hierarchical decomposition and blended objective approach. Reduced terminal planning time by 80% while improving long-term throughput.</div>
+        <span class="project-card-impact">80% planning time reduction · US Patent Granted</span>
+      </div>
+
+      <div class="project-card reveal">
+        <div class="project-card-icon">🤖</div>
+        <div class="project-card-org">Research</div>
+        <div class="project-card-title">Maternal Health Risk Prediction</div>
+        <div class="project-card-desc">Machine learning approach for predicting maternal health risks in lower-middle-income countries using sparse vital sign data. Published in Future Internet 2025.</div>
+        <span class="project-card-impact">Future Internet · 2025</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- ─── CONTACT ─── -->
+  <section id="contact" style="padding:6rem 0; max-width:100%">
+    <div class="inner">
+      <div class="section-label">05 — Contact</div>
+      <h2>Let's<br /><span>connect</span></h2>
+
+      <div class="contact-grid">
+        <div class="contact-text reveal">
+          <p>
+            I'm always open to discussing new research collaborations, industry problems involving optimization or machine learning, and opportunities at the intersection of OR and real-world systems.
+          </p>
+          <p>
+            Whether you're a fellow researcher, a practitioner looking for consulting, or a recruiter — feel free to reach out.
+          </p>
+          <div style="margin-top:1.5rem; display:flex; gap:0.5rem; flex-wrap:wrap">
+            <span class="badge">Bengaluru, India</span>
+            <span class="badge">New Jersey, USA</span>
+            <span class="badge">Open to Collaboration</span>
+          </div>
+        </div>
+
+        <div class="contact-links reveal" style="transition-delay:0.15s">
+          <a href="mailto:avnishmalde@gmail.com" class="contact-link">
+            <div class="contact-link-icon">✉️</div>
+            <div class="contact-link-info">
+              <strong>Email</strong>
+              <span>avnishmalde@gmail.com</span>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/avnish-malde" target="_blank" class="contact-link">
+            <div class="contact-link-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#c8a84b"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </div>
+            <div class="contact-link-info">
+              <strong>LinkedIn</strong>
+              <span>linkedin.com/in/avnish-malde</span>
+            </div>
+          </a>
+          <a href="tel:+919326030597" class="contact-link">
+            <div class="contact-link-icon">📞</div>
+            <div class="contact-link-info">
+              <strong>Phone (India)</strong>
+              <span>+91 93260 30597</span>
+            </div>
+          </a>
+          <a href="tel:+18642072202" class="contact-link">
+            <div class="contact-link-icon">📞</div>
+            <div class="contact-link-info">
+              <strong>Phone (USA)</strong>
+              <span>+1 864 207 2202</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <p>© 2025 <span>Avnish Kishor Malde</span> · Built with HTML · Hosted on GitHub Pages</p>
+  </footer>
+
+  <script>
+    // ─── TAB SWITCHER ───
+    function showTab(id) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.pub-tab').forEach(t => t.classList.remove('active'));
+      document.getElementById('tab-' + id).classList.add('active');
+      event.target.classList.add('active');
+    }
+
+    // ─── SCROLL REVEAL ───
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
